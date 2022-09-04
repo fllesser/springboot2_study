@@ -1,0 +1,34 @@
+person:
+  user-name: "zhangsan \n 李四"
+  # -n代表n是大写
+  # 单引号或不加引号会将\n作为字符串输出
+  # 双引号会将\n作为换行输出
+  # 所以双引号不会转义, 单引号会转义
+  boss: true
+  birth: 2019/12/9
+  age: 18
+  # interests: [篮球, 足球]
+  interests:
+    - 篮球
+    - 足球
+    - 18
+  animal: [阿猫, 阿狗]
+  score: {english: 80, math: 90} # json语法
+  salarys:
+    - 999.88
+    - 983.2
+  all-pet:
+    sick:
+      - {name: 阿狗, weight: 82.8}
+      - name: 阿猫
+        weight: 83.8
+      - name: 鸡脖哥
+        weight: 80.0
+    health:
+      - {name: 阿刘, weight: 82.8}
+  pet:
+    name: 阿狗
+    weight: 90.0
+#  score:
+#    english: 80
+#    math: 90

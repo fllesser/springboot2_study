@@ -1,6 +1,5 @@
 package com.chowyijiu.springboot;
 
-import ch.qos.logback.core.db.DBHelper;
 import com.chowyijiu.springboot.bean.Car;
 import com.chowyijiu.springboot.bean.Cat;
 import com.chowyijiu.springboot.bean.User;
