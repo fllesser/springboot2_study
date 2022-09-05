@@ -22,5 +22,21 @@
         <input value="REST-PUT 提交" type="submit">
     </form>
 
+    <a href="car/3/owner/lisi">car/{id}/owner/{username}</a><br/>
+    <a href="car/3/owner/lisi?age=18&inters=basketball&inters=game">car/{id}/owner/{username}?age=18&inters=basketball&inters=game</a>
+
+    <form action="/save" method="post">
+        用户名: <input name="username">
+        邮箱: <input name="email">
+        <input type="submit" value="提交">
+    </form>
+
+    <a href="/goto">测试RequestAttribute</a><br/>
+
+    /cars/{path}?xxx=xxx&aaa=ccc queryString 查询字符串, @RequestPram:<br/>
+    /cars/{path;low=34,brand=byd,audi,yd} 矩阵变量 <br/>
+    页面开发, cookie禁用了, session里面的内容怎么使用:<br/>
+    session.set(a,b) -->> jsessionid -->> cookie -->> 每次发送请求携带
+    url重写: /abc;jsessionid=xxx 把cookie的值使用矩阵变量的方式进行传递
 </body>
 </html>
