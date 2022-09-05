@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+    <h1>欢迎 Welcome</h1>
+    测试 REST 风格
+    <form action="/user">
+        <input value="REST-GET 提交" type="submit"/>
+    </form>
+    <form action="/user" method="post">
+        <input value="REST-POST 提交" type="submit">
+    </form>
+    <form action="/user" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input value="REST-DELETE 提交" type="submit">
+    </form>
+    <form action="/user" method="post">
+        <input type="hidden" name="_method" value="put">
+        <input value="REST-PUT 提交" type="submit">
+    </form>
+
+</body>
+</html>
