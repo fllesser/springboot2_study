@@ -42,4 +42,30 @@ public class ParameterTestController {
         return content;
     }
 
+    ///cars/sell;low=34;brand=byd,audi,yd
+    @GetMapping("/cars/{path}")
+    public Map<String, Object> carsSell(
+            @MatrixVariable("low") Integer low,
+            @MatrixVariable("brand") List<String> brand,
+            @PathVariable("path") String path
+    ) {
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("low", low);
+        map.put("brand", brand);
+        map.put("path", path);
+        return map;
+    }
+
+    @GetMapping("/boss/{bossId}/{empId}")
+    public Map<String, Object> boss(
+            @MatrixVariable(value = "age", pathVar = "bossId") Integer bossAge,
+            @MatrixVariable(value = "age", pathVar = "empId") Integer empAge
+    ) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("bossAge", bossAge);
+        map.put("empAge", empAge);
+        return map;
+    }
+
+
 }

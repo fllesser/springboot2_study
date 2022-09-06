@@ -1,12 +1,12 @@
 spring:
   mvc:
-#    static-path-pattern: /res/**
+    #    static-path-pattern: /res/**
     hiddenmethod:
       filter:
         enabled: true
   web:
     resources:
-      static-locations: [classpath:/haha/]
+      static-locations: [ classpath:/haha/, classpath:/emp/ ]
       add-mappings: true
       cache:
         period: 11000

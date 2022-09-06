@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Index</title>
 </head>
 <body>
     <h1>欢迎 Welcome</h1>
+
+    <a th:href="@{/employee}">查询所有的员工信息</a><br/>
+    <a th:href="@{/employee/page/1}">查询员工的分页信息</a><br/>
+
     测试 REST 风格
     <form action="/user">
         <input value="REST-GET 提交" type="submit"/>
@@ -38,5 +42,8 @@
     页面开发, cookie禁用了, session里面的内容怎么使用:<br/>
     session.set(a,b) -->> jsessionid -->> cookie -->> 每次发送请求携带
     url重写: /abc;jsessionid=xxx 把cookie的值使用矩阵变量的方式进行传递
+    <a href="/cars/sell;low=34;brand=byd,audi,yd"> @MatrixVariable 矩阵变量 1</a><br/>
+    <a href="/cars/sell;low=34;brand=bdy;brand=audi;brand=yd">@MatrixVariable 矩阵变量 2</a><br/>
+    <a href="/boss/1;age=10/2;age=20">@MatrixVariable /boss/{bossId}/{empId}</a><br/>
 </body>
 </html>

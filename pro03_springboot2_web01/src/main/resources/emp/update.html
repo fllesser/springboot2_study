@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>emp_update</title>
+    <link rel="stylesheet" href="/css/index_work.css">
+</head>
+<!--/*@thymesVar id="emp" type="com.chowyijiu.ssm.pojo.Employee"*/-->
+<!--/*@thymesVar id="pageNum" type="java.lang.Integer"*/-->
+<body>
+<form th:action="@{'/employee/' + ${pageNum}}" method="post">
+    <input type="hidden" name="_method" value="put">
+    <input type="hidden" name="empId" th:value="${emp.empId}">
+    <table>
+        <tr>
+            <th colspan="2"> 更 新 员 工 信 息 </th>
+        </tr>
+        <tr>
+            <td>员工姓名</td>
+            <td>
+                <label>
+                    <input type="text" name="empName" th:value="${emp.empName}"/>
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td>年龄</td>
+            <td>
+                <label>
+                    <input type="text" name="age" th:value="${emp.age}"/>
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td>性别</td>
+            <td>
+                <label>
+                    <input type="radio" name="gender" value="1" th:field="${emp.gender}">
+                </label>男性
+                <label>
+                    <input type="radio" name="gender" value="0" th:field="${emp.gender}">
+                </label>女性
+            </td>
+        </tr>
+        <tr>
+            <td>邮箱</td>
+            <td>
+                <label>
+                    <input type="text" name="email" th:value="${emp.email}"/>
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value=" 更 新 ">
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
