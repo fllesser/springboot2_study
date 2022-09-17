@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+ <trees>
+     <tree path="/pro03_springboot2_web01/src/main/java/com/chowyijiu/boot/controller/ParameterTestController.java"
+           title="参数测试" extension="java"/>
+     <tree path="/pro03_springboot2_web01/src/main/java/com/chowyijiu/boot/controller/HelloController.java"
+           extension="java"/>
+ </trees>

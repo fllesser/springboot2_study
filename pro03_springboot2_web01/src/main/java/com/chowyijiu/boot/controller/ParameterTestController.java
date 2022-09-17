@@ -1,9 +1,9 @@
 package com.chowyijiu.boot.controller;
 
 
+
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.Cookie;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -66,6 +66,5 @@ public class ParameterTestController {
         map.put("empAge", empAge);
         return map;
     }
-
 
 }
