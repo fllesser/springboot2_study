@@ -45,5 +45,19 @@
     <a href="/cars/sell;low=34;brand=byd,audi,yd"> @MatrixVariable 矩阵变量 1</a><br/>
     <a href="/cars/sell;low=34;brand=bdy;brand=audi;brand=yd">@MatrixVariable 矩阵变量 2</a><br/>
     <a href="/boss/1;age=10/2;age=20">@MatrixVariable /boss/{bossId}/{empId}</a><br/>
+
+测试复杂类型<br/>
+测试封装pojo<br/>
+<form action="/saveuser" method="post">
+    姓名: <input name="userName" value="zhangsan"> <br/>
+    年龄: <input name="age" value="18"> <br/>
+    生日: <input name="birth" value="2019/12/10"> <br/>
+<!--    宠物名字: <input name="pet.name" value="lkp"> <br>-->
+<!--    宠物年龄: <input name="pet.age" value="10">-->
+    宠物: <input name="pet" value="刘坤鹏,10"><br/>
+    <input type="submit" value="保存">
+</form><br/>
+
+    <a href="/test/person">/test/person</a>
 </body>
 </html>

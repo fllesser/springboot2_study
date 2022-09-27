@@ -2,6 +2,7 @@ package com.chowyijiu.boot.controller;
 
 
 
+import com.chowyijiu.boot.bean.Person;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -65,6 +66,11 @@ public class ParameterTestController {
         map.put("bossAge", bossAge);
         map.put("empAge", empAge);
         return map;
+    }
+
+    @PostMapping("/saveuser")
+    public Person saveUser(Person person) {
+        return person;
     }
 
 }
