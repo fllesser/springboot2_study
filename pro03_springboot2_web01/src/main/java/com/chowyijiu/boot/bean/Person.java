@@ -2,10 +2,12 @@ package com.chowyijiu.boot.bean;
 
 
 import lombok.Data;
+import lombok.ToString;
 
 import java.util.Date;
 
 @Data
+@ToString
 public class Person {
 
     private String userName;

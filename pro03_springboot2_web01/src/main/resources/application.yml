@@ -4,6 +4,8 @@ spring:
     hiddenmethod:
       filter:
         enabled: true
+    contentnegotiation:
+      favor-parameter: true
   web:
     resources:
       static-locations: [ classpath:/haha/, classpath:/emp/ ]
