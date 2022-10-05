@@ -46,6 +46,5 @@ public class IndexController {
             model.addAttribute("msg", "请重新登陆");
             return "login";
         }
-
     }
 }
