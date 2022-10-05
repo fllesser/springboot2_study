@@ -25,8 +25,7 @@ public class IndexController {
     public String main(User user, HttpSession session, Model model) {
         if (StringUtils.hasLength(user.getUserName()) &&
                 user.getUserName().equals("admin") &&
-                StringUtils.hasLength(user.getPassword()) &&
-                user.getPassword().equals("123456")) {
+                StringUtils.hasLength(user.getPassword())) {
             //把登陆成功的用户保存起来
             session.setAttribute("loginUser", user);
             //登陆成功重定向到main.html, 重定向防止表单重复提交
