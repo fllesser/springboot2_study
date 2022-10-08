@@ -28,7 +28,7 @@ public class FormTestController {
         log.info("上传的信息: email={}, username={}, headImg.size={}, photos.length={}",
                 email, username, headerImg.getSize(), photos.length);
         if (!headerImg.isEmpty()) {
-            //保存到文件服务器, 或者用一些对象存储服务器
+            //保存到文件服务器, 或者对象存储服务器
             String originalFilename = headerImg.getOriginalFilename();
             headerImg.transferTo(new File("/Users/yijiuchow/Desktop/" + originalFilename));
         }
@@ -40,7 +40,6 @@ public class FormTestController {
                 }
             }
         }
-
         return "main";
     }
 }

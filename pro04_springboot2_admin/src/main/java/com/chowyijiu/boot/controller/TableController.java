@@ -1,9 +1,11 @@
 package com.chowyijiu.boot.controller;
 
 import com.chowyijiu.boot.bean.User;
+import com.chowyijiu.boot.exception.UserTooManyException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Arrays;
 import java.util.List;
@@ -13,6 +15,7 @@ public class TableController {
 
     @GetMapping("/basic_table")
     public String basic_table() {
+        int i = 10 / 0;
         return "table/basic_table";
     }
 
@@ -23,8 +26,11 @@ public class TableController {
                 new User("zhangsan", "123456"),
                 new User("lisi", "12312"),
                 new User("lkp", "lkp010703"),
-                new User("ts", "sdtfsadf"));
+                new User("ts", "skd0234"));
         model.addAttribute("users", users);
+        if (users.size() > 3) {
+            throw new UserTooManyException();
+        }
         return "table/dynamic_table";
     }
 
