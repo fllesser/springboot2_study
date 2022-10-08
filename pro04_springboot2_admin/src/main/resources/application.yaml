@@ -4,7 +4,9 @@ server:
     path: /error  # 默认 /error
 spring:
   mvc:
-#    static-path-pattern: /static
+    servlet:
+  #    path: /mvc
+  #    static-path-pattern: /static
   servlet:
     multipart:
       max-file-size: 10MB # 单个文件的大小

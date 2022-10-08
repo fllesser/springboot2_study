@@ -3,11 +3,10 @@ package com.chowyijiu.boot.servlet;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.servlet.*;
-import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
 
 @Slf4j
-@WebFilter(urlPatterns = {"/css/*", "/images/*"})
+//@WebFilter(urlPatterns = {"/css/*", "/images/*"}) // Spring /css/**  原生 /css/*
 public class MyFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
