@@ -3,11 +3,17 @@ server:
   error:
     path: /error  # 默认 /error
 spring:
-  mvc:
-    servlet:
+#  mvc:
+#    servlet:
   #    path: /mvc
   #    static-path-pattern: /static
   servlet:
     multipart:
       max-file-size: 10MB # 单个文件的大小
       max-request-size: 100MB # 整个请求上传的所有文件的大小
+  datasource:
+    url: jdbc:mysql://101.35.240.17/ssm
+    username: root
+    password: 261806
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
