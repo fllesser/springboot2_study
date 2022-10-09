@@ -6,12 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import javax.annotation.Resource;
+
 @Slf4j
 @SpringBootTest
 class Pro04Springboot2AdminApplicationTests {
 
-    @Autowired
-    JdbcTemplate jdbcTemplate;
+    @Resource
+    JdbcTemplate jdbcTemplate; //这里不要用@AutoWired
 
     @Test
     void contextLoads() {
