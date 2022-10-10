@@ -1,22 +1,10 @@
 package com.chowyijiu.boot.service;
 
 import com.chowyijiu.boot.bean.City;
-import com.chowyijiu.boot.mapper.CityMapper;
-import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+public interface CityService {
 
-@Service
-public class CityService {
+    City getCityById(Long id);
 
-    @Resource
-    CityMapper cityMapper;
-
-    public City getCityById(Long id) {
-        return cityMapper.getCityById(id);
-    }
-
-    public void saveCity(City city) {
-        cityMapper.insert(city);
-    }
+    void saveCity(City city);
 }

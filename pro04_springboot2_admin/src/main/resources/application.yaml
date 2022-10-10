@@ -39,11 +39,17 @@ spring:
         url-pattern: /*
         exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
 #配置mybatis规则
-mybatis:
-  # config-location: classpath:mybatis/mybatis-config.xml # 全局配置文件
-  mapper-locations: classpath:mybatis/mapper/*.xml #sql映射文件位置
-  type-aliases-package: com.chowyijiu.boot.bean # bean包
+#mybatis:
+#  # config-location: classpath:mybatis/mybatis-config.xml # 全局配置文件
+#  mapper-locations: classpath:mybatis/mapper/*.xml #sql映射文件位置
+#  type-aliases-package: com.chowyijiu.boot.bean # bean包
+#  configuration:
+#    map-underscore-to-camel-case: true #驼峰命名
+#    aggressive-lazy-loading: false
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml # 默认值
+  type-aliases-package: com.chowyijiu.boot.bean
   configuration:
     map-underscore-to-camel-case: true #驼峰命名
     aggressive-lazy-loading: false
-

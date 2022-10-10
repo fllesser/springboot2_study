@@ -1,5 +1,7 @@
 package com.chowyijiu.boot.pro04_springboot2_admin;
 
+import com.chowyijiu.boot.bean.User;
+import com.chowyijiu.boot.mapper.UserMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,4 +37,12 @@ class Pro04Springboot2AdminApplicationTests {
         log.info("dataSource type" + dataSource);
     }
 
+    @Resource
+    UserMapper userMapper;
+
+    @Test
+    void testUserMapper() {
+        User user = userMapper.selectById(2L);
+        log.info("用户信息" + user);
+    }
 }

@@ -2,11 +2,10 @@ package com.chowyijiu.boot.controller;
 
 import com.chowyijiu.boot.bean.City;
 import com.chowyijiu.boot.bean.Emp;
-import com.chowyijiu.boot.mapper.CityMapper;
 import com.chowyijiu.boot.service.CityService;
 import com.chowyijiu.boot.service.EmpService;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Controller;
+import com.chowyijiu.boot.service.impl.CityServiceImpl;
+import com.chowyijiu.boot.service.impl.EmpServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
