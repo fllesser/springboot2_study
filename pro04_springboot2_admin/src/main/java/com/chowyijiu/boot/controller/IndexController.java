@@ -21,29 +21,29 @@ import java.util.Map;
 @Controller
 public class IndexController {
 
-    @Resource
-    JdbcTemplate jdbcTemplate;
+//    @Resource
+//    JdbcTemplate jdbcTemplate;
 
     /**
      * 测试Druid数据库监控页
      * @return
      */
-    @ResponseBody
-    @GetMapping("/sql")
-    public String queryFromDb() {
-        Long aLong = jdbcTemplate.queryForObject("SELECT count(*) FROM  t_emp", Long.class);
-        log.info("总记录数 " + aLong);
-        return aLong + "";
-    }
-
-    @ResponseBody
-    @GetMapping("/sql2")
-    public String queryFromDb2() {
-        List<Map<String, Object>> list = jdbcTemplate.queryForList("SELECT * FROM t_emp");
-        List<Emp> emps = new ArrayList<>();
-        list.forEach((map) -> emps.add(toEmp(map)));
-        return emps + "";
-    }
+//    @ResponseBody
+//    @GetMapping("/sql")
+//    public String queryFromDb() {
+//        Long aLong = jdbcTemplate.queryForObject("SELECT count(*) FROM  t_emp", Long.class);
+//        log.info("总记录数 " + aLong);
+//        return aLong + "";
+//    }
+//
+//    @ResponseBody
+//    @GetMapping("/sql2")
+//    public String queryFromDb2() {
+//        List<Map<String, Object>> list = jdbcTemplate.queryForList("SELECT * FROM t_emp");
+//        List<Emp> emps = new ArrayList<>();
+//        list.forEach((map) -> emps.add(toEmp(map)));
+//        return emps + "";
+//    }
 
     public Emp toEmp(Map<String, Object> map) {
         Emp emp = new Emp();

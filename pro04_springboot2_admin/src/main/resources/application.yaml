@@ -16,4 +16,34 @@ spring:
     username: root
     password: 261806
     driver-class-name: com.mysql.jdbc.Driver
-    type: com.zaxxer.hikari.HikariDataSource
+
+    druid:
+      aop-patterns: com.chowyijiu.boot.*
+      filters: stat, wall # 底层开启功能 stat监控sql wall防火墙
+      filter:
+        stat:
+          slow-sql-millis: 1000
+        wall:
+          enabled: true
+          config:
+            drop-table-allow: false # 不允许删表
+
+      stat-view-servlet:
+        enabled: true # 默认true 开启
+        login-username: admin # 监控也用户名密码
+        login-password: 261806
+        reset-enable: false # 是否有重置按钮
+
+      web-stat-filter:
+        enabled: true # 默认true 开启
+        url-pattern: /*
+        exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+#配置mybatis规则
+mybatis:
+  # config-location: classpath:mybatis/mybatis-config.xml # 全局配置文件
+  mapper-locations: classpath:mybatis/mapper/*.xml #sql映射文件位置
+  type-aliases-package: com.chowyijiu.boot.bean # bean包
+  configuration:
+    map-underscore-to-camel-case: true #驼峰命名
+    aggressive-lazy-loading: false
+

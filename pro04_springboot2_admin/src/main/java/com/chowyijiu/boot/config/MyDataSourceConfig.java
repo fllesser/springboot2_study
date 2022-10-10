@@ -18,12 +18,13 @@ import java.util.Arrays;
 import java.util.Collections;
 
 @Slf4j
-@Configuration
+//@Configuration
+@Deprecated
 public class MyDataSourceConfig {
 
     // 默认的自动配置@ConditionalOnMissingBean({DataSource.class, XADataSource.class})
     // 是判断容器中没有DataSource才自动配置
-    @Bean
+    //@Bean
     @ConfigurationProperties("spring.datasource")
     public DataSource dataSource() throws SQLException {
         DruidDataSource druidDataSource = new DruidDataSource();
@@ -41,7 +42,7 @@ public class MyDataSourceConfig {
      * 配置Druid的监控页功能
      * @return
      */
-    @Bean
+    //@Bean
     public ServletRegistrationBean<? extends Servlet> statViewServlet() {
         StatViewServlet statViewServlet = new StatViewServlet();
         ServletRegistrationBean<StatViewServlet> registrationBean = new ServletRegistrationBean<>(statViewServlet, "/druid/*");
@@ -53,7 +54,7 @@ public class MyDataSourceConfig {
     /**
      * WebStatFilter 用来采集web-jdbc关联监控的数据
      */
-    @Bean
+    //@Bean
     public FilterRegistrationBean<? extends Filter> WebStatFilter() {
         WebStatFilter webStatFilter = new WebStatFilter();
         FilterRegistrationBean<WebStatFilter> filterRegistrationBean = new FilterRegistrationBean<>(webStatFilter);
