@@ -10,6 +10,7 @@ import javax.servlet.Filter;
 import javax.servlet.Servlet;
 import javax.servlet.ServletContextListener;
 import java.util.Arrays;
+import java.util.EventListener;
 
 
 /**
@@ -21,14 +22,14 @@ import java.util.Arrays;
 public class MyRegistrationConfig {
 
     @Bean
-    public ServletRegistrationBean<Servlet> myServlet() {
+    public ServletRegistrationBean<? extends Servlet> myServlet() {
 
         MyServlet myServlet = new MyServlet();
         return new ServletRegistrationBean<>(myServlet, "/my", "/my02");
     }
 
     @Bean
-    public FilterRegistrationBean<Filter> myFilter() {
+    public FilterRegistrationBean<? extends Filter> myFilter() {
         MyFilter myFilter = new MyFilter();
         //return new FilterRegistrationBean<>(myFilter, myServlet());
         //上面myServlet是什么路径,就拦截什么
@@ -38,7 +39,7 @@ public class MyRegistrationConfig {
     }
 
     @Bean
-    public ServletListenerRegistrationBean<ServletContextListener> myListener() {
+    public ServletListenerRegistrationBean<? extends EventListener> myListener() {
         MyServletContextListener myServletContextListener = new MyServletContextListener();
         return new ServletListenerRegistrationBean<>(myServletContextListener);
     }

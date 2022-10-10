@@ -19,7 +19,7 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
  *  1.静态资源, 视图解析器, 欢迎页, 全部失效
  */
 
-@EnableWebMvc
+//@EnableWebMvc
 @Configuration
 public class AdminWebConfig implements WebMvcConfigurer {
 
@@ -27,18 +27,18 @@ public class AdminWebConfig implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new LoginInterceptor())
                 .addPathPatterns("/**") //所有请求都会拦截, 包括静态资源
-                .excludePathPatterns("/", "/login", "/css/**", "/js/**", "/fonts/**", "/images/**", "/aa/**");  // 放行请求
+                .excludePathPatterns("/", "/login", "/css/**", "/js/**", "/fonts/**", "/images/**", "/aa/**", "/sql", "/sql2");  // 放行请求
     }
 
     /**
      * 静态资源
      * @param registry
      */
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/aa/**")
-                .addResourceLocations("classpath:/static/");
-    }
+//    @Override
+//    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+//        registry.addResourceHandler("/aa/**")
+//                .addResourceLocations("classpath:/static/");
+//    }
 
 //    @Bean
 //    public WebMvcRegistrations webMvcRegistrations() {
