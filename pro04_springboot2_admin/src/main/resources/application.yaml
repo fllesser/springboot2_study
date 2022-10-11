@@ -53,3 +53,11 @@ mybatis-plus:
   configuration:
     map-underscore-to-camel-case: true #驼峰命名
     aggressive-lazy-loading: false
+
+# 是所有actuator的配置
+management:
+  endpoints:
+    enabled-by-default: true # 默认开启所有监控端点
+    web:
+      exposure:
+        include: '*' # 以web方式暴露所有端点
