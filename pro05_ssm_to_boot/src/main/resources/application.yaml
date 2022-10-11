@@ -1,0 +1,38 @@
+server:
+  port: 8080
+
+spring:
+  #  mvc:
+  #    servlet:
+  #    path: /mvc
+  #    static-path-pattern: /static
+  servlet:
+    multipart:
+      max-file-size: 10MB # 单个文件的大小
+      max-request-size: 100MB # 整个请求上传的所有文件的大小
+  datasource:
+    url: jdbc:mysql://101.35.240.17/ssm
+    username: root
+    password: 261806
+    driver-class-name: com.mysql.jdbc.Driver
+
+    druid:
+      aop-patterns: com.chowyijiu.boot.*
+      filters: stat, wall # 底层开启功能 stat监控sql wall防火墙
+      filter:
+        stat:
+          slow-sql-millis: 1000
+        wall:
+          enabled: true
+          config:
+            drop-table-allow: false # 不允许删表
+# 配置mybatis规则
+mybatis:
+  # config-location: classpath:mybatis/mybatis-config.xml # 全局配置文件
+  mapper-locations: classpath:mybatis/mapper/*.xml #sql映射文件位置
+  type-aliases-package: com.chowyijiu.boot.pro05_ssm_to_boot.bean # bean包
+  configuration:
+    map-underscore-to-camel-case: true #驼峰命名
+    lazy-loading-enabled: true
+    aggressive-lazy-loading: false
+
