@@ -8,6 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 @DisplayName("JUnit5功能测试类")
 @SpringBootTest
+@Disabled
 public class JUnit5Test {
 
     @DisplayName("测试display name注解")
@@ -17,7 +18,6 @@ public class JUnit5Test {
     }
 
     @DisplayName("测试方法test2")
-    @Disabled
     @Test
     void test2() {
         System.out.println(2);
@@ -32,7 +32,7 @@ public class JUnit5Test {
     @Test
     void testTimeout() throws InterruptedException {
         System.out.println(1);
-        Thread.sleep(600); //这里是毫秒
+        Thread.sleep(400); //这里是毫秒
         System.out.println(2);
     }
 

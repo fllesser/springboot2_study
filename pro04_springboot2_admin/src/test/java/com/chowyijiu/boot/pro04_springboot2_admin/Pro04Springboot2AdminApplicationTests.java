@@ -3,6 +3,7 @@ package com.chowyijiu.boot.pro04_springboot2_admin;
 import com.chowyijiu.boot.bean.User;
 import com.chowyijiu.boot.mapper.UserMapper;
 import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -15,6 +16,7 @@ import java.util.function.Consumer;
 
 @Slf4j
 @SpringBootTest
+@Disabled
 class Pro04Springboot2AdminApplicationTests {
 
     @Resource
