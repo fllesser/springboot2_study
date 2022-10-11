@@ -75,7 +75,8 @@
                                         <td th:text="${user.age}">Win 95+</td>
                                         <td th:text="${user.email}">4</td>
                                         <td>
-                                            <a th:href="@{/user/delete/{id}(id=${user.id},pn=${users.current})}" class="btn btn-danger btn-sm" type="button">删除</a>
+                                            <a th:href="@{/user/delete/{id}(id
+                                            =${user.id},pn=${users.current})}" class="btn btn-danger btn-sm" type="button">删除</a>
                                         </td>
                                     </tr>
                                     </tfoot>
