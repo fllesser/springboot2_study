@@ -1,8 +1,9 @@
 package com.chowyijiu.boot.pro05_ssm_to_boot.controller;
 
-import com.chowyijiu.boot.pro05_ssm_to_boot.bean.Employee;
+import com.chowyijiu.boot.pro05_ssm_to_boot.pojo.Employee;
 import com.chowyijiu.boot.pro05_ssm_to_boot.service.EmployeeService;
 import com.github.pagehelper.PageInfo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;

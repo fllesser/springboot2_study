@@ -1,4 +1,4 @@
-package com.chowyijiu.boot.pro05_ssm_to_boot.bean;
+package com.chowyijiu.boot.pro05_ssm_to_boot.pojo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

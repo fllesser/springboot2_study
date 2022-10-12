@@ -61,3 +61,20 @@ management:
     web:
       exposure:
         include: '*' # 以web方式暴露所有端点
+  endpoint:
+    health:
+      show-details: always
+    metrics:
+      enabled: true
+    beans:
+      enabled: true
+  info:
+    env:
+      enabled: true
+
+info:
+  appName: boot-admin
+  appVersion: 1.0.0
+  mavenProjectName: @project.artifactId@
+  mavenProjectVersion: @project.version@
+

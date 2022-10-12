@@ -1,6 +1,6 @@
 package com.chowyijiu.boot.pro05_ssm_to_boot.mapper;
 
-import com.chowyijiu.boot.pro05_ssm_to_boot.bean.Employee;
+import com.chowyijiu.boot.pro05_ssm_to_boot.pojo.Employee;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;

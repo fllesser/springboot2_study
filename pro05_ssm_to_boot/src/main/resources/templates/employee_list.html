@@ -22,12 +22,13 @@
         <th><a th:href="@{/to/add}">添加</a></th>
     </tr>
     <tr th:each="employee, status : ${page.list}">
-        <!--/*@thymesVar id="employee" type="com.chowyijiu.boot.pro05_ssm_to_boot.bean.Employee"*/-->
+        <!--/*@thymesVar id="employee" type="com.chowyijiu.boot.pro05_ssm_to_boot.pojo.Employee"*/-->
         <td th:text="${(page.pageNum - 1) * page.pageSize  + status.count}"></td>
         <td th:text="${employee.empName}"></td>
-        <td th:text="${employee.age}"></td><!--/*@thymesVar id="employee" type="com.chowyijiu.boot.pro05_ssm_to_boot.bean.Employee"*/-->
-        <td th:if="${employee.gender != '0'}" th:text="男"></td>
-        <td th:if="${employee.gender == '0'}" th:text="女"></td>
+        <td th:text="${employee.age}"></td>
+        <!--/*@thymesVar id="employee" type="com.chowyijiu.boot.pro05_ssm_to_boot.pojo.Employee"*/-->
+        <td th:if="${employee.gender != 0}" th:text="男"></td>
+        <td th:if="${employee.gender == 0}" th:text="女"></td>
         <!--<td th:text="${employee.gender}"></td>-->
         <td th:text="${employee.email}"></td>
         <td>

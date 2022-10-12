@@ -30,6 +30,9 @@ public class MyConfig {
         properties.setProperty("supportMethodsArguments", "true");
         pageInterceptor.setProperties(properties);
         bean.setPlugins(pageInterceptor);
-        return bean.getObject();
+        SqlSessionFactory sqlSessionFactory = bean.getObject();
+        assert sqlSessionFactory != null;
+        sqlSessionFactory.getConfiguration().setMapUnderscoreToCamelCase(true);
+        return sqlSessionFactory;
     }
 }

@@ -6,6 +6,10 @@ spring:
   #    servlet:
   #    path: /mvc
   #    static-path-pattern: /static
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
   servlet:
     multipart:
       max-file-size: 10MB # 单个文件的大小
@@ -26,10 +30,23 @@ spring:
           enabled: true
           config:
             drop-table-allow: false # 不允许删表
+
+      stat-view-servlet:
+        enabled: true # 默认true 开启
+        login-username: admin # 监控也用户名密码
+        login-password: 261806
+        reset-enable: false # 是否有重置按钮
+
+      web-stat-filter:
+        enabled: true # 默认true 开启
+        url-pattern: /*
+        exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+
+
 # 配置mybatis规则
 mybatis:
   # config-location: classpath:mybatis/mybatis-config.xml # 全局配置文件
-  mapper-locations: classpath:mybatis/mapper/*.xml #sql映射文件位置
+  # mapper-locations: classpath:mybatis/mapper/*.xml #sql映射文件位置
   type-aliases-package: com.chowyijiu.boot.pro05_ssm_to_boot.bean # bean包
   configuration:
     map-underscore-to-camel-case: true #驼峰命名

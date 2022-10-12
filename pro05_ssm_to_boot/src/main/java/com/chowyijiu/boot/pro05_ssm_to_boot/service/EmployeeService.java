@@ -1,7 +1,7 @@
 package com.chowyijiu.boot.pro05_ssm_to_boot.service;
 
 
-import com.chowyijiu.boot.pro05_ssm_to_boot.bean.Employee;
+import com.chowyijiu.boot.pro05_ssm_to_boot.pojo.Employee;
 import com.github.pagehelper.PageInfo;
 
 
