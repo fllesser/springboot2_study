@@ -17,7 +17,7 @@ public class MyComHealthIndicator extends AbstractHealthIndicator {
     protected void doHealthCheck(Health.Builder builder) throws Exception {
         //mongodb
         Map<String, Object> map = new HashMap<>();
-        if (1 != 1) {
+        if (1 == 1) {
             //builder.up();//健康
             builder.status(Status.UP);
             map.put("count", 1);
