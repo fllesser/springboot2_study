@@ -3,7 +3,9 @@ server:
   error:
     path: /error  # 默认 /error
 spring:
-#  mvc:
+  application:
+    name: springboot2_admin
+  #  mvc:
 #    servlet:
   #    path: /mvc
   #    static-path-pattern: /static
@@ -38,6 +40,12 @@ spring:
         enabled: true # 默认true 开启
         url-pattern: /*
         exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+  boot:
+    admin:
+      client:
+        url: http://localhost:8888
+        instance:
+          prefer-ip: true # 使用ip注册请求
 #配置mybatis规则
 #mybatis:
 #  # config-location: classpath:mybatis/mybatis-config.xml # 全局配置文件
