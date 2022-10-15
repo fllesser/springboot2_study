@@ -1,0 +1,6 @@
+org.springframework.context.ApplicationContextInitializer=\
+  com.chowyijiu.hellotest.listener.MyApplicationContextInitializer
+org.springframework.boot.SpringApplicationRunListener=\
+  com.chowyijiu.hellotest.listener.MySpringApplicationRunListener
+org.springframework.context.ApplicationListener=\
+  com.chowyijiu.hellotest.listener.MyApplicationListener
