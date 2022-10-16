@@ -1,0 +1,35 @@
+spring:
+  datasource:
+    druid:
+      username: root
+      password: 261806
+      url: jdbc:mysql://101.35.240.17/ssm
+      driver-class-name: com.mysql.jdbc.Driver
+
+      aop-patterns: com.chowyijiu.boot.*
+      filters: stat, wall # 底层开启功能 stat监控sql wall防火墙
+      filter:
+        stat:
+          slow-sql-millis: 1000
+        wall:
+          enabled: true
+          config:
+            drop-table-allow: false # 不允许删表
+
+      stat-view-servlet:
+        enabled: true # 默认true 开启
+        login-username: admin # 监控也用户名密码
+        login-password: 261806
+        reset-enable: false # 是否有重置按钮
+
+      web-stat-filter:
+        enabled: true # 默认true 开启
+        url-pattern: /*
+        exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml # 默认值
+  type-aliases-package: com.chowyijiu.boot.bean
+  configuration:
+    map-underscore-to-camel-case: true #驼峰命名
+    aggressive-lazy-loading: false
