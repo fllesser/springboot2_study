@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>员工列表</title>
+    <link rel="stylesheet" th:href="@{/css/index_work.css}">
+</head>
+<!--/*@thymesVar id="page" type="com.baomidou.mybatisplus.extension.plugins.pagination.Page"*/-->
+
+<body>
+<table>
+    <tr>
+        <th colspan="5">员工列表</th>
+        <th>操作</th>
+    </tr>
+    <tr>
+        <th>流水号</th>
+        <th>员工姓名</th>
+        <th>年龄</th>
+        <th>性别</th>
+        <th>邮箱</th>
+        <th><a th:href="@{/to/add}">添加</a></th>
+    </tr>
+    <tr th:each="employee, status : ${page.getRecords()}">
+        <!--/*@thymesVar id="employee" type="com.chowyijiu.boot.pro05_ssm_to_boot.pojo.Employee"*/-->
+        <td th:text="${(page.getCurrent() - 1) * page.getSize()  + status.count}"></td>
+        <td th:text="${employee.empName}"></td>
+        <td th:text="${employee.age}"></td>
+        <!--/*@thymesVar id="employee" type="com.chowyijiu.boot.pro05_ssm_to_boot.pojo.Employee"*/-->
+        <td th:if="${employee.gender != 0}" th:text="男"></td>
+        <td th:if="${employee.gender == 0}" th:text="女"></td>
+        <!--<td th:text="${employee.gender}"></td>-->
+        <td th:text="${employee.email}"></td>
+        <td>
+            <form id="temp_form" th:action="@{'/employee/' + ${page.getCurrent()} + '/' + ${employee.empId}}" method="post">
+                <input type="hidden" name="_method" value="delete"/>
+                <a href="javascript:document.getElementById('temp_form').submit()">删除</a>
+            </form>
+            <a th:href="@{'/employee/' + ${page.getCurrent()} + '/' + ${employee.empId}}">修改</a>
+        </td>
+    </tr>
+</table>
+<div style="text-align: center">
+    <a th:if="${page.hasPrevious()}" th:href="@{/employee/page/1}">首页</a>
+    <a th:if="${page.hasPrevious()}" th:href="@{'/employee/page/' + ${page.getCurrent()-1}}">上一页</a>
+    <span th:class="${num == page.current?'active':''}" th:each="num:${#numbers.sequence(1,page.pages)}" >
+        <a th:href="@{/dynamic_table(pn=${num})}">[[${num}]]</a>
+    </span>
+    <a th:if="${page.hasNext()}" th:href="@{'/employee/page/' + ${page.getCurrent()+1}}">下一页</a>
+    <a th:if="${page.hasNext()}" th:href="@{'/employee/page/' + ${page.pages}}">尾页</a>
+</div>
+</body>
+</html>

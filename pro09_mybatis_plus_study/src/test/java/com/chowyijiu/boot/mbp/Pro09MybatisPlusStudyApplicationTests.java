@@ -1,14 +1,10 @@
 package com.chowyijiu.boot.mbp;
 
 
-import com.baomidou.mybatisplus.core.conditions.AbstractLambdaWrapper;
-import com.baomidou.mybatisplus.core.conditions.AbstractWrapper;
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.chowyijiu.boot.mbp.mapper.EmpMapper;
+import com.chowyijiu.boot.mbp.mapper.EmployeeMapper;
 import com.chowyijiu.boot.mbp.mapper.UserMapper;
-import com.chowyijiu.boot.mbp.pojo.Emp;
+import com.chowyijiu.boot.mbp.pojo.Employee;
 import com.chowyijiu.boot.mbp.pojo.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -25,7 +21,7 @@ class Pro09MybatisPlusStudyApplicationTests {
     @Resource
     private UserMapper userMapper;
     @Resource
-    private EmpMapper empMapper;
+    private EmployeeMapper employeeMapper;
 
     @Test
     void contextLoads() {
@@ -37,9 +33,9 @@ class Pro09MybatisPlusStudyApplicationTests {
 
     @Test
     void test1() {
-        List<Emp> emps = empMapper.selectList(new QueryWrapper<Emp>().in("age", 99));
-        emps.forEach(System.out::println);
-        empMapper.insert(new Emp(null, "chowyijiu", 99, 0, "19550518zrf@gmail.com"));
+        List<Employee> employees = employeeMapper.selectList(new QueryWrapper<Employee>().in("age", 99));
+        employees.forEach(System.out::println);
+        employeeMapper.insert(new Employee(null, "chowyijiu", 99, 0, "19550518zrf@gmail.com"));
 
     }
 }

@@ -43,7 +43,7 @@ public class TableController {
 //        List<User> users = userService.list();
 //        model.addAttribute("users", users);
 
-        Page<User> users = userService.page(new Page<User>(pn, 2));
+        Page<User> users = userService.page(new Page<>(pn, 2));
         model.addAttribute("users", users);
         return "table/dynamic_table";
     }

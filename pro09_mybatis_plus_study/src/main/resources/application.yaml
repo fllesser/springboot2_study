@@ -23,6 +23,10 @@ spring:
         enabled: true # 默认true 开启
         url-pattern: /*
         exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
 
 mybatis-plus:
   mapper-locations: classpath*:/mapper/**/*.xml # 默认值
@@ -30,3 +34,4 @@ mybatis-plus:
   configuration:
     map-underscore-to-camel-case: true # 驼峰命名
     aggressive-lazy-loading: false
+    lazy-loading-enabled: true
