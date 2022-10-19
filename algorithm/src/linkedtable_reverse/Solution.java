@@ -13,6 +13,7 @@ public class Solution {
         node3.next = node4;
         node4.next = node5;
         reverse1(node1);
+<<<<<<< HEAD
         System.out.println(node5);
 
     }
@@ -24,5 +25,13 @@ public class Solution {
             temp.next = node;
             node.next = null;
         }
+=======
+        System.out.println(node1);
+
+    }
+
+    public static void reverse1(Node head) {
+
+>>>>>>> origin/main
     }
 }
