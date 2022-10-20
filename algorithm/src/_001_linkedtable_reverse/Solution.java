@@ -1,4 +1,4 @@
-package linkedtable_reverse;
+package _001_linkedtable_reverse;
 
 public class Solution {
 
@@ -13,6 +13,7 @@ public class Solution {
         node3.next = node4;
         node4.next = node5;
         reverse1(node1);
+        //reverse2(node5);
         System.out.println(node5);
 
     }
@@ -24,7 +25,17 @@ public class Solution {
             temp.next = node;
             node.next = null;
         }
+    }
 
+    public static void reverse2(Node node) {
+        while (node.next != null) {
+            Node temp = node;
+            while (temp.next.next != null) {
+                temp = temp.next;
+            }
+            temp.next.next = temp;
+            temp.next = null;
+        }
     }
 
 }
