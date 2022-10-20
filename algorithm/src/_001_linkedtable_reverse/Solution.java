@@ -3,39 +3,68 @@ package _001_linkedtable_reverse;
 public class Solution {
 
     public static void main(String[] args) {
-        Node node1 = new Node(1);
-        Node node2 = new Node(2);
-        Node node3 = new Node(3);
-        Node node4 = new Node(4);
-        Node node5 = new Node(5);
-        node1.next = node2;
-        node2.next = node3;
-        node3.next = node4;
-        node4.next = node5;
-        reverse1(node1);
-        //reverse2(node5);
-        System.out.println(node5);
+        ListNode listNode1 = new ListNode(1);
+        ListNode listNode2 = new ListNode(2);
+        ListNode listNode3 = new ListNode(3);
+        ListNode listNode4 = new ListNode(4);
+        ListNode listNode5 = new ListNode(5);
+        listNode1.next = listNode2;
+        listNode2.next = listNode3;
+        listNode3.next = listNode4;
+        listNode4.next = listNode5;
+        reverse1(listNode1);
+        //reverse2(listNode5);
+        System.out.println(listNode5);
 
     }
 
-    public static void reverse1(Node node) {
-        Node temp = node.next;
+    public static void reverse1(ListNode listNode) {
+        ListNode temp = listNode.next;
         if (temp != null) {
             reverse1(temp);
-            temp.next = node;
-            node.next = null;
+            temp.next = listNode;
+            listNode.next = null;
         }
     }
 
-    public static void reverse2(Node node) {
-        while (node.next != null) {
-            Node temp = node;
+    public static void reverse2(ListNode listNode) {
+        while (listNode.next != null) {
+            ListNode temp = listNode;
             while (temp.next.next != null) {
                 temp = temp.next;
             }
             temp.next.next = temp;
             temp.next = null;
         }
+    }
+
+    public static ListNode reverseList(ListNode head) {
+        if (head == null || head.next == null) return head;
+        ListNode temp = head;
+        while (temp.next != null) {
+            temp = temp.next;
+        }
+        ListNode result = temp;
+        while (head.next != null) {
+            temp = head;
+            while (temp.next.next != null) {
+                temp = temp.next;
+            }
+            temp.next.next = temp;
+            temp.next = null;
+        }
+        return result;
+    }
+
+    public static ListNode reverseList2(ListNode head) {
+        ListNode pre = null, cur = head, next = null;
+        while (cur != null) {
+            next = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = next;
+        }
+        return pre;
     }
 
 }

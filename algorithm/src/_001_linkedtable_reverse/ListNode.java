@@ -1,21 +1,21 @@
 package _001_linkedtable_reverse;
 
-public class Node {
+public class ListNode {
 
     public int val;
-    public Node next;
+    public ListNode next;
 
-    public Node() {
+    public ListNode() {
 
     }
 
-    public Node(int val) {
+    public ListNode(int val) {
         this.val = val;
     }
 
     @Override
     public String toString() {
-        return "Node{" +
+        return "ListNode{" +
                 "val=" + val +
                 ", next=" + next +
                 '}';
