@@ -12,51 +12,16 @@ public class Solution {
         listNode2.next = listNode3;
         listNode3.next = listNode4;
         listNode4.next = listNode5;
-        reverse1(listNode1);
-        //reverse2(listNode5);
-        System.out.println(listNode5);
+        System.out.println(reverseList2(listNode1));
 
     }
 
-    public static void reverse1(ListNode listNode) {
-        ListNode temp = listNode.next;
-        if (temp != null) {
-            reverse1(temp);
-            temp.next = listNode;
-            listNode.next = null;
-        }
-    }
-
-    public static void reverse2(ListNode listNode) {
-        while (listNode.next != null) {
-            ListNode temp = listNode;
-            while (temp.next.next != null) {
-                temp = temp.next;
-            }
-            temp.next.next = temp;
-            temp.next = null;
-        }
-    }
-
-    public static ListNode reverseList(ListNode head) {
-        if (head == null || head.next == null) return head;
-        ListNode temp = head;
-        while (temp.next != null) {
-            temp = temp.next;
-        }
-        ListNode result = temp;
-        while (head.next != null) {
-            temp = head;
-            while (temp.next.next != null) {
-                temp = temp.next;
-            }
-            temp.next.next = temp;
-            temp.next = null;
-        }
-        return result;
-    }
-
-    public static ListNode reverseList2(ListNode head) {
+    /**
+     * pre cur next
+     * @param head
+     * @return
+     */
+    public static ListNode reverseList1(ListNode head) {
         ListNode pre = null, cur = head, next = null;
         while (cur != null) {
             next = cur.next;
@@ -65,6 +30,14 @@ public class Solution {
             cur = next;
         }
         return pre;
+    }
+
+    public static ListNode reverseList2(ListNode head) {
+        if (head == null || head.next == null) return head;
+        ListNode node = reverseList2(head.next);
+        head.next.next = head;
+        head.next = null;
+        return node;
     }
 
 }
