@@ -8,6 +8,7 @@ public class Solution {
 
     public static void main(String[] args) {
         System.out.println(new Solution().countPrimes(499979));
+        System.out.println(bf(499979));
     }
 
     /**
@@ -16,21 +17,34 @@ public class Solution {
      * @return
      */
     public int countPrimes(int n) {
-        if (n <= 2) return 0;
-        int count = 1;
-        for (int i = 3; i < n; i++) {
+        int count = 0;
+        for (int i = 2; i < n; i++) {
             boolean flag = true;
-            if (i % 10 % 2 == 0) flag = false; // 个位能被2整除
-            else {
-                for (int j = 2; j < i; j++) {
-                    if (i % j == 0) {
-                        flag = false;
-                        break;
-                    }
+            for (int j = 2; j * j <= i; j++) {
+                if (i % j == 0) {
+                    flag = false;
+                    break;
                 }
             }
             if (flag) count++;
         }
         return count;
+    }
+
+    public static int bf(int n) {
+        int count = 0;
+        for (int i = 2; i < n; i++) {
+            count += isPrime(i) ? 1 : 0;
+        }
+        return count;
+    }
+
+    public static boolean isPrime(int x) {
+        for (int i = 2; i * i <= x; i++) {
+            if (x % i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }
