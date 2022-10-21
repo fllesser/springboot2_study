@@ -5,19 +5,28 @@ package _003_count_prime_number;
  */
 public class Solution {
 
+
+    public static void main(String[] args) {
+        System.out.println(new Solution().countPrimes(499979));
+    }
+
     /**
      * 暴力
      * @param n
      * @return
      */
     public int countPrimes(int n) {
-        int count = 0;
-        for (int i = 2; i < n; i++) {
+        if (n <= 2) return 0;
+        int count = 1;
+        for (int i = 3; i < n; i++) {
             boolean flag = true;
-            for (int j = 2; j < i; j++) {
-                if (i % j == 0) {
-                    flag = false;
-                    break;
+            if (i % 10 % 2 == 0) flag = false; // 个位能被2整除
+            else {
+                for (int j = 2; j < i; j++) {
+                    if (i % j == 0) {
+                        flag = false;
+                        break;
+                    }
                 }
             }
             if (flag) count++;
