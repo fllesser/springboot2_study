@@ -31,6 +31,7 @@ public class Solution {
         return count;
     }
 
+
     public static int bf(int n) {
         int count = 0;
         for (int i = 2; i < n; i++) {
