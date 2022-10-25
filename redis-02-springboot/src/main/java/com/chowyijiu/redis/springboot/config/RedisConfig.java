@@ -27,29 +27,8 @@ public class RedisConfig {
         redisTemplate.setValueSerializer(genericJackson2JsonRedisSerializer);
         redisTemplate.setHashValueSerializer(genericJackson2JsonRedisSerializer);
         return redisTemplate;
+        //解决中文乱码问题
 
-//        RedisTemplate<Serializable, Object> template = new RedisTemplate<>();
-//        template.setConnectionFactory(factory);
-//        //json序列化
-//        Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer<>(Object.class);
-//        ObjectMapper om = new ObjectMapper();
-//        om.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
-//        om.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
-//        jackson2JsonRedisSerializer.setObjectMapper(om);
-//
-//        StringRedisSerializer stringRedisSerializer = new StringRedisSerializer();
-//
-//        //template.setDefaultSerializer(stringRedisSerializer);
-//        //String 的序列化
-//
-//        template.setKeySerializer(stringRedisSerializer);
-//        //hash的key也采用String的方式序列化
-//        template.setHashKeySerializer(stringRedisSerializer);
-//        //value序列化方式采用jackson
-//        template.setValueSerializer(jackson2JsonRedisSerializer);
-//        //hash 的 value序列化方式使用jackson
-//        template.setHashValueSerializer(jackson2JsonRedisSerializer);
-//        template.afterPropertiesSet();
-//        return template;
     }
+
 }
