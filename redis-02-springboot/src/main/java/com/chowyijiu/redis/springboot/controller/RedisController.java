@@ -29,10 +29,10 @@ public class RedisController {
     @GetMapping("/redis")
     public String TestRedis2() {
         //真实的开发一般都使用json来传递对象
-        Person kuangshen = new Person("狂神", 23);
+        Person chowyijiu = new Person("chowyijiu", 21);
         //String jsonKuangshen = new ObjectMapper().writeValueAsString(kuangshen);
-        redisTemplate.opsForValue().set("kuangshen", kuangshen);
-        return Objects.requireNonNull(redisTemplate.opsForValue().get("kuangshen")).toString();
+        redisTemplate.opsForValue().set("chowyijiu", chowyijiu);
+        return Objects.requireNonNull(redisTemplate.opsForValue().get("chowyijiu")).toString();
     }
 
 }
