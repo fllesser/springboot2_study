@@ -22,8 +22,9 @@ public class RedisController {
     public String TestRedis() {
         RedisConnection connection = Objects.requireNonNull(redisTemplate.getConnectionFactory()).getConnection();
         connection.flushDb();
+        connection.flushAll();
         Date date = new Date();
-        return date + " redis flush db 0 complete";
+        return date + "redis flush db 0 complete";
     }
 
     @GetMapping("/redis")
