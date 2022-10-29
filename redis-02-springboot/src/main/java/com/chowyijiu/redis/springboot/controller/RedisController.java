@@ -34,6 +34,7 @@ public class RedisController {
         //String jsonKuangshen = new ObjectMapper().writeValueAsString(kuangshen);
         redisTemplate.opsForValue().set("chowyijiu", chowyijiu);
         return Objects.requireNonNull(redisTemplate.opsForValue().get("chowyijiu")).toString();
+
     }
 
 }
