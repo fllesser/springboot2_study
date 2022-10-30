@@ -1,7 +1,6 @@
 package java8_charactoristic;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Test {
 
@@ -11,5 +10,10 @@ public class Test {
             integers.add(i);
         }
         integers.forEach(System.out::println);
+        integers.forEach(Test::print);
+    }
+
+    public static void print(Object str) {
+        System.out.println(str);
     }
 }
