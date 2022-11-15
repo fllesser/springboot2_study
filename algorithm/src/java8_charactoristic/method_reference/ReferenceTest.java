@@ -9,6 +9,6 @@ public class ReferenceTest {
         for (int i = 0; i < 10; i++) {
             strings.add("Test Reference " + i);
         }
-        strings.stream().limit(5).forEach(System.out::println);
+        strings.stream().limit(15).forEach(System.out::println);
     }
 }
