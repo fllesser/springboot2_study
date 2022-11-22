@@ -1,6 +1,6 @@
 package dynamic_proxy.jdk;
 
-public class Test {
+public class TestJDK {
 
 
     /**

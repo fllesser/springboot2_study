@@ -4,7 +4,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 
-public class Test {
+public class TestReflect {
     /**
      * 总结 不带declared, 返回的是当前类和它父类的所有public成员
      * 带declared, 返回当前类所有成员
