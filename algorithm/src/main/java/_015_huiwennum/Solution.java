@@ -68,4 +68,27 @@ public class Solution {
         return x == revertedNumber || x == revertedNumber / 10;
     }
 
+    public boolean isPalindrome6(int x) {
+        if (x < 0 || (x % 10 == 0 && x != 0)) return false;
+        //先找到第六位
+        ArrayList<Integer> list = new ArrayList<>(5);
+        int tmp = x;
+        for (int i = 0; i < 5; i++) {
+            list.add(tmp % 10);
+            if (tmp > 1) {
+                tmp /= 10;
+            } else {
+                break;
+            }
+        }
+        if (!list.contains(tmp % 10)) return false;
+        tmp = 0;
+        for (int i = 0; i < 5; i++) {
+            tmp = list.get(i) + tmp;
+            tmp *= 10;
+            if (x == tmp) return true;
+        }
+        return false;
+    }
+
 }
