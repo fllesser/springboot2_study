@@ -10,7 +10,7 @@ public class Solution {
         Solution solution = new Solution();
         String s = solution.intToRoman2(1994);
         System.out.println(s);
-        int i = solution.romanToInt2(s);
+        int i = solution.romanToInt3(s);
         System.out.println(i);
 
     }
@@ -85,12 +85,45 @@ public class Solution {
         return sb.toString();
     }
 
+
+    /**
+     * 最优解,
+     * @param s
+     * @return
+     */
+    public int romanToInt(String s) {
+        int[] ints = new int[]{1000, 500, 100, 50, 10, 5, 1};
+        char[] chars = new char[]{'M', 'D', 'C', 'L', 'X', 'V', 'I'};
+        int res = 0;
+        int i = 0, j = 0;
+        while (i < s.length() && j < 7) {
+            if (s.charAt(i) == chars[j]) {
+                res += ints[j];
+                if (j != 0 && j % 2 == 0 && i + 1 < s.length()) {
+                    if (s.charAt(i + 1) == chars[j - 1]) {
+                        res += ints[j - 1] - 2 * ints[j];
+                        i += 2;
+                        continue;
+                    } else if (s.charAt(i + 1) == chars[j - 2]) {
+                        res += ints[j - 2] - 2 * ints[j];
+                        i += 2;
+                        continue;
+                    }
+                }
+                i++;
+            } else {
+                j++;
+            }
+        }
+        return res;
+    }
+
     /**
      * 罗马转数字
      * @param s
      * @return
      */
-    public int romanToInt(String s) {
+    public int romanToInt2(String s) {
         int[] ints = new int[]{1000, 500, 100, 50, 10, 5, 1};
         char[] chars = new char[]{'M', 'D', 'C', 'L', 'X', 'V', 'I'};
         char[] ss = s.toCharArray(); // toCharArray遍历比charAt遍历效率高!!!
@@ -99,13 +132,13 @@ public class Solution {
         while (i < ss.length && j < 7) {
             if (ss[i] == chars[j]) {
                 res[i] = ints[j];
-                if (i + 1 < ss.length && j >= 1) {
+                if (j != 0 && j % 2 == 0 && i + 1 < s.length()) {
                     if (ss[i + 1] == chars[j - 1]) {
                         res[i] = -ints[j];
                         res[i + 1] = ints[j - 1];
                         i += 2;
                         continue;
-                    } else if (j >= 2 && ss[i + 1] == chars[j - 2]) {
+                    } else if (ss[i + 1] == chars[j - 2]) {
                         res[i] = -ints[j];
                         res[i + 1] = ints[j - 2];
                         i += 2;
@@ -124,7 +157,7 @@ public class Solution {
         return result;
     }
 
-    public int romanToInt2(String s) {
+    public int romanToInt3(String s) {
         int[] ints = new int[]{1000, 500, 100, 50, 10, 5, 1};
         char[] chars = new char[]{'M', 'D', 'C', 'L', 'X', 'V', 'I'};
         int[] res = new int[s.length()];
@@ -132,14 +165,15 @@ public class Solution {
         while (i < s.length() && j < 7) {
             if (s.charAt(i) == chars[j]) {
                 res[i] = ints[j];
-                if (i + 1 < s.length() && j >= 1) {
-                    if (s.charAt(i + 1) == chars[j - 1]) {
+                if (j != 0 && j % 2 == 0 && i + 1 < s.length()) {
+                    char tmp = s.charAt(i + 1);
+                    if (tmp == chars[j - 1]) {
                         res[i] = -ints[j];
                         res[i + 1] = ints[j - 1];
                         //i++;
                         i += 2;
                         continue;
-                    } else if (j >= 2 && s.charAt(i + 1) == chars[j - 2]) {
+                    } else if (tmp == chars[j - 2]) {
                         res[i] = -ints[j];
                         res[i + 1] = ints[j - 2];
                         //i++;
@@ -158,4 +192,36 @@ public class Solution {
         }
         return result;
     }
+
+
+    public int romanToInt4(String s) {
+        int[] ints = new int[]{1000, 500, 100, 50, 10, 5, 1};
+        char[] chars = new char[]{'M', 'D', 'C', 'L', 'X', 'V', 'I'};
+        char[] ss = s.toCharArray(); // toCharArray遍历比charAt遍历效率高!!!
+        //int[] res = new int[ss.length];
+        int res = 0;
+        int i = 0, j = 0;
+        while (i < ss.length && j < 7) {
+            if (ss[i] == chars[j]) {
+                res += ints[j];
+                if (j != 0 && j % 2 == 0 && i + 1 < s.length()) {
+                    if (ss[i + 1] == chars[j - 1]) {
+                        res += ints[j - 1] - 2 * ints[j];
+                        i += 2;
+                        continue;
+                    } else if (ss[i + 1] == chars[j - 2]) {
+                        res += ints[j - 2] - 2 * ints[j];
+                        i += 2;
+                        continue;
+                    }
+                }
+                i++;
+            } else {
+                j++;
+            }
+        }
+        return res;
+    }
+
+
 }
