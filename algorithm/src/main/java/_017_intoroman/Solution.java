@@ -42,6 +42,11 @@ public class Solution {
         return sb.toString();
     }
 
+    /**
+     * 少用arraylist, 真的很慢
+     * @param num
+     * @return
+     */
     public String intToRoman2(int num) {
         int[] ints = new int[]{1000, 500, 100, 50, 10, 5, 1};
         char[] chars = new char[]{'M', 'D', 'C', 'L', 'X', 'V', 'I'};
@@ -51,7 +56,8 @@ public class Solution {
         for (int i = 0; i < 7; i++) {
             tmp = num / ints[i];
             if (tmp > 0) {
-                if ((i == 2 || i == 4 || i == 6) && tmp == 4) {
+                //i == 2 || i == 4 || i == 6
+                if ((i % 2 == 0) && tmp == 4) {
                     //sb.append(chars[i]).append(chars[i - 1]);
                     sb.append(chars[i]);
                     if (sb.length() >= 2 && sb.charAt(sb.length() - 2) == chars[i - 1]) {
