@@ -27,6 +27,11 @@ import java.util.Arrays;
  */
 public class Solution {
 
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int i = solution.threeSumClosest(new int[]{1, 2, 3, 4, 5, 6}, 7);
+        System.out.println(i);
+    }
 
     public int threeSumClosest(int[] nums, int target) {
         int len = nums.length;
@@ -53,6 +58,5 @@ public class Solution {
             }
         }
         return res;
-
     }
 }
