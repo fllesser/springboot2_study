@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class StreamList {
 
@@ -46,5 +47,9 @@ public class StreamList {
                 .filter(Objects::nonNull)
                 .mapToDouble(Grade::getEnglishScore)
                 .sum() / (double) gradeList.size();
+    }
+
+    public Stream<Grade> filterNullByStream(List<Grade> gradeList) {
+        return gradeList.stream().filter(Objects::nonNull);
     }
 }
