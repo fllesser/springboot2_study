@@ -16,7 +16,8 @@ public class Solution {
     public ListNode mergeKLists(ListNode[] lists) {
         if (lists == null || lists.length == 0) return null;
         if (lists.length == 1) return lists[0];
-        ListNode res = new ListNode();
+
+        ListNode res;
         res = mergeTwoLists(lists[0], lists[1]);
         for (int i = 2; i < lists.length; i++) {
             res = mergeTwoLists(res, lists[i]);
@@ -73,7 +74,7 @@ public class Solution {
         return res.next;
     }
 
-    class NAL {
+    static class NAL {
         ListNode head;
         ListNode tail;
         NAL(ListNode node) {
