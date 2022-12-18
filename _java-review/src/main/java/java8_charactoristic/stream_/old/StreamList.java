@@ -1,4 +1,4 @@
-package java8_charactoristic.stream_;
+package java8_charactoristic.stream_.old;
 
 import java.util.Comparator;
 import java.util.List;
